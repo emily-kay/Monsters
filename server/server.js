@@ -6,8 +6,13 @@ const PORT = 5000; //all caps cause it won't change
 
 //Created consts
 
+const listOfMonsters = require('./modules/monsters.js');
 
 app.use(express.static('server/public'));
+
+app.get('/monsters', (req, res) =>{
+    res.send(listOfMonsters);
+});
 
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`)
